@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	<Runtime>
+		<Import assembly="Xamarin.Ios.Plist.Configuration.dll" />
+	</Runtime>
+	<Extension path="/MonoDevelop/Ide/Commands">
+		<Command id="Xamarin.Ios.Plist.Configuration.AddConfigurationCommands.Configuration" type="array" _label="Configuration" defaultHandler="Xamarin.Ios.Plist.Configuration.AddConfigurationCommandHandler" />
+	</Extension>
+	<Extension path="/MonoDevelop/Ide/ContextMenu/ProjectPad">
+		<Condition id="FileType" fileExtensions=".plist">
+			<ItemSet id="Xamarin.Ios.Plist.Configuration.AddConfigurationCommands.AddConfiguration" _label="Add Configuration" autohide="true" insertbefore="PropertiesSectionStart">
+				<CommandItem id="Xamarin.Ios.Plist.Configuration.AddConfigurationCommands.Configuration" />
+			</ItemSet>
+			<SeparatorItem />
+		</Condition>
+	</Extension>
+</ExtensionModel>

@@ -28,6 +28,7 @@
 		<Folder Include="Build\" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Update="readme.txt" Pack="true" PackagePath="" />
 		<None Update="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
 	</ItemGroup>
 	<ItemGroup>

@@ -32,6 +32,7 @@
 	<ItemGroup>
 		<None Update="readme.txt" Pack="true" PackagePath="" />
 		<None Update="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
+		<None Update="Tools\install.ps1" Pack="true" PackagePath="tools" />
 	</ItemGroup>
 	<ItemGroup>
 		<!--<None Include="Tools\init.ps1" Pack="true" PackagePath="tools" />-->

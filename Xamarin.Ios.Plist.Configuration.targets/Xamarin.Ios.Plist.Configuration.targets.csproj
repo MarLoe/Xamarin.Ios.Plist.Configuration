@@ -33,13 +33,4 @@
 		<None Include="readme.txt" Pack="true" PackagePath="" />
 		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
 	</ItemGroup>
-	<ItemGroup>
-		<!--<None Include="Tools\init.ps1" Pack="true" PackagePath="tools" />-->
-		<!--<None Include="..\VisualStudioMac.SimplePad_17.0.mpack" Pack="true" PackagePath="tools" />-->
-		<!--
-		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
-		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="buildCrossTargeting\xamarinios10" />
-		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="tools\xamarinios10" />
-		-->
-	</ItemGroup>
 </Project>

@@ -1,0 +1,1 @@
+# Xamarin.Ios.Plist.Configuration

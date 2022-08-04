@@ -11,6 +11,8 @@ Global
 		Release|iPhoneSimulator = Release|iPhoneSimulator
 		Debug|iPhone = Debug|iPhone
 		Release|iPhone = Release|iPhone
+		Development|iPhoneSimulator = Development|iPhoneSimulator
+		Development|iPhone = Development|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
@@ -21,6 +23,10 @@ Global
 		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Debug|iPhone.Build.0 = Debug|iPhone
 		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Release|iPhone.ActiveCfg = Release|iPhone
 		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Release|iPhone.Build.0 = Release|iPhone
+		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Development|iPhoneSimulator.ActiveCfg = Development|iPhoneSimulator
+		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Development|iPhoneSimulator.Build.0 = Development|iPhoneSimulator
+		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Development|iPhone.ActiveCfg = Development|iPhone
+		{3E4494D5-2F5F-4952-A022-44F2C5712F35}.Development|iPhone.Build.0 = Development|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

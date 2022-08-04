@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Ios.Plist.Configuration.targets", "Xamarin.Ios.Plist.Configuration.targets\Xamarin.Ios.Plist.Configuration.targets.csproj", "{A922F20C-FCD3-4948-B697-418F7E7CCA2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Ios.Plist.Configuration.addin", "Xamarin.Ios.Plist.Configuration.addin\Xamarin.Ios.Plist.Configuration.addin.csproj", "{172A3D4F-86C7-48EE-9FCA-06FC7C6F3E36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{A922F20C-FCD3-4948-B697-418F7E7CCA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A922F20C-FCD3-4948-B697-418F7E7CCA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A922F20C-FCD3-4948-B697-418F7E7CCA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172A3D4F-86C7-48EE-9FCA-06FC7C6F3E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172A3D4F-86C7-48EE-9FCA-06FC7C6F3E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172A3D4F-86C7-48EE-9FCA-06FC7C6F3E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172A3D4F-86C7-48EE-9FCA-06FC7C6F3E36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup>
+		<Description>This is the description</Description>
+		<Authors>Martin Løbger</Authors>
+		<Company>ML-Consulting</Company>
+		<Copyright>Copyright 2022</Copyright>
+		<PackageProjectUrl>https://github.com/marloe</PackageProjectUrl>
+		<IncludeBuildOutput>true</IncludeBuildOutput>
+		<PackageVersion>0.1.2</PackageVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="NuGet.Build.Tasks.Pack" />
+		<None Remove="Tools\" />
+		<None Remove="Build\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NuGet.Build.Tasks.Pack" Version="6.2.1">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Tools\" />
+		<Folder Include="Build\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
+	</ItemGroup>
+	<ItemGroup>
+		<!--<None Include="Tools\init.ps1" Pack="true" PackagePath="tools" />-->
+		<!--<None Include="..\VisualStudioMac.SimplePad_17.0.mpack" Pack="true" PackagePath="tools" />-->
+		<!--
+		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
+		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="buildCrossTargeting\xamarinios10" />
+		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="tools\xamarinios10" />
+		-->
+	</ItemGroup>
+</Project>

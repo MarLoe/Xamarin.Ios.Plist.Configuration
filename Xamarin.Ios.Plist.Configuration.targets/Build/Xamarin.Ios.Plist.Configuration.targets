@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!--
+	Author:				Martin Løbger - martin@lobger.com
+	Date:				2022.06.29
+	Version:			1.0
+	Description:		Merge $(Configuration) specific plist settings file into the "master" file
+
+	Example:			If you need configuration (e.g. Debug) specific entries in your Info.plist file,
+						then add the following to your iOS project file, below the Info.plist entry:
+							<None Include="Info.Debug.plist">
+								<DependentUpon>Info.plist</DependentUpon>
+							</None>
+						The Info.Debug.plist file must be a normal Info.plist file with debug specific entires.
+
+	See also:			Xamarin Build System targets:
+								https://github.com/xamarin/xamarin-macios/blob/main/msbuild/Xamarin.Shared/Xamarin.Shared.targets
+	-->
+
+	<PropertyGroup>
+		<CleanDependsOn>
+			$(CleanDependsOn);
+			_CleanMergedToolOutput;
+		</CleanDependsOn>
+
+		<MergePropertyListsDependsOn>
+			_CleanMergedToolOutput;
+			_CollectMergePropertyLists;
+			_CoreMergePropertyLists;
+			_AfterCoreMergePropertyLists
+		</MergePropertyListsDependsOn>
+	</PropertyGroup>
+
+
+	<Target Name="_MergePropertyLists" AfterTargets="_CollectPropertyLists" DependsOnTargets="$(MergePropertyListsDependsOn)" />
+
+
+	<Target Name="_CleanMergedToolOutput">
+		<RemoveDir
+				SessionId="$(BuildSessionId)"
+				Directories="$(DeviceSpecificIntermediateOutputPath)merged" />
+	</Target>
+
+
+	<Target Name="_CollectMergePropertyLists">
+		<CreateItem
+				Include="@(_PropertyList)"
+				Condition="Exists('%(Rootdir)%(Directory)%(Filename).$(Configuration)%(Extension)')"
+				AdditionalMetadata="MergeName=%(Rootdir)%(Directory)%(Filename).$(Configuration)%(Extension);MergedPath=$(DeviceSpecificIntermediateOutputPath)merged\%(LogicalName)">
+			<Output TaskParameter="Include" ItemName="_MergePropertyList" />
+		</CreateItem>
+		<ItemGroup>
+			<_PropertyList Remove="@(_MergePropertyList)" />
+			<FileWrites
+					Include="%(_MergePropertyList.MergedPath)" />
+		</ItemGroup>
+	</Target>
+
+
+	<Target Name="_CoreMergePropertyLists"
+			DependsOnTargets="_CollectMergePropertyLists"
+			Inputs="@(_MergePropertyList)"
+			Outputs="%(_MergePropertyList.MergedPath)">
+		<Message
+				Text="Merging '%(_MergePropertyList.MergeName)' into ''%(_MergePropertyList.LogicalName)''" />
+		<Copy
+				SourceFiles="%(_MergePropertyList.FullPath)"
+				DestinationFiles="%(_MergePropertyList.MergedPath)"	/>
+		<Exec
+				Command="/usr/bin/plutil -extract PreferenceSpecifiers xml1 -o '%(_MergePropertyList.MergedPath).extract' '%(_MergePropertyList.MergeName)'"
+				ToolExe="$(PlUtilExe)"
+				ToolPath="$(PlUtilPath)" />
+		<PropertyListEditor
+				Action="Merge"
+				Entry="PreferenceSpecifiers"
+				PropertyList="%(_MergePropertyList.MergedPath)"
+				Value="%(_MergePropertyList.MergedPath).extract" />
+  </Target>
+
+
+	<Target Name="_AfterCoreMergePropertyLists" Condition="'@(_MergePropertyList)' != ''">
+		<ItemGroup>
+			<_PropertyList Remove="@(_MergePropertyList)" />
+		</ItemGroup>
+		<CreateItem
+				Include="%(_MergePropertyList.MergedPath)"
+				AdditionalMetadata="LogicalName=%(_MergePropertyList.LogicalName);Optimize='%(_MergePropertyList.Optimize)'">
+			<Output TaskParameter="Include" ItemName="_PropertyList" />
+		</CreateItem>
+  </Target>
+	
+	
+</Project>

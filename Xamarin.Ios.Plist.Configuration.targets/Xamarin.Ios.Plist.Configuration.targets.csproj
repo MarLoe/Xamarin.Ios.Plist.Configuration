@@ -4,6 +4,7 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<OutputPath>bin</OutputPath>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>Xamarin.Ios.Plist.Configuration</AssemblyName>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Description>This is the description</Description>
@@ -12,11 +13,11 @@
 		<Copyright>Copyright 2022</Copyright>
 		<PackageProjectUrl>https://github.com/marloe</PackageProjectUrl>
 		<IncludeBuildOutput>true</IncludeBuildOutput>
-		<PackageVersion>0.1.3</PackageVersion>
+		<PackageVersion>0.1.6</PackageVersion>
+		<PackageId>Xamarin.Ios.Plist.Configuration</PackageId>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="NuGet.Build.Tasks.Pack" />
-		<None Remove="Tools\" />
 		<None Remove="Build\" />
 	</ItemGroup>
 	<ItemGroup>
@@ -26,13 +27,11 @@
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Tools\" />
 		<Folder Include="Build\" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Update="readme.txt" Pack="true" PackagePath="" />
-		<None Update="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
-		<None Update="Tools\install.ps1" Pack="true" PackagePath="tools" />
+		<None Include="readme.txt" Pack="true" PackagePath="" />
+		<None Include="Build\Xamarin.Ios.Plist.Configuration.targets" Pack="true" PackagePath="build\xamarinios10" />
 	</ItemGroup>
 	<ItemGroup>
 		<!--<None Include="Tools\init.ps1" Pack="true" PackagePath="tools" />-->
